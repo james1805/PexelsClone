@@ -54,12 +54,90 @@
     transform: translateY(-50%);
 }
 
-.search-box input {
-    width: 100%;
-    height: 100%;
+input, button, i {
     outline: none;
     border: none;
+    border-radius: 5px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;    
     font-size: 1.1rem;
     padding-left: 55px;
-    border-radius: 5px;
+    
+}
+
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery .images{
+    gap: 15px;
+    max-width: 95%;
+    margin-top: 40px;
+    columns: 340px 5;
+}
+
+.images .card {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    list-style: none;
+    margin-bottom: 14px;
+    border-radius: 4px;
+}
+
+.images .card .details {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    transition: bottom 0.3s ease;
+}
+
+.images .card:hover .details {
+    bottom: 0;
+}
+
+.card .details .photographer {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.details .photographer i {
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+
+.details .photographer span {
+    font-size: 1.05rem;
+}
+
+.card .details button {
+    padding: 3px 8px;
+    font-size: 1.1rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+.images img {
+    width: 100%;
+}
+
+.gallery .load-more {
+    background: #8a6cff;
+    margin: 50px 0;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 12px 27px;
+    cursor: pointer;
 }
