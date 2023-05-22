@@ -69,6 +69,7 @@ input, button, i {
 }
 
 
+
 .gallery {
     display: flex;
     flex-direction: column;
@@ -142,6 +143,11 @@ input, button, i {
     cursor: pointer;
 }
 
+.gallery .load-more.disabled{
+    opacity: 0.6;
+    pointer-events: none;
+
+}
 
 
 
@@ -161,9 +167,10 @@ input, button, i {
     width: 100%;
     max-width: 850px;
     padding: 20px;
-    background: #fff;
+    background-color: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%);
+    backdrop-filter: blur(5px);
 }
 
 .wrapper header {
