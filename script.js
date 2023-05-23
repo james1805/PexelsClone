@@ -9,6 +9,15 @@ const imageWrapper = document.querySelector(".images");
 const loadMoreBtn = document.querySelector(".load-more");
 const searchInput = document.querySelector(".search-box input");
 
+const downLoadImage = (imgURL, photographer) => {
+    fetch(imgURL).then(resp => resp.blob()).then(file => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(file);
+        a.download = `pexels-clone-${photographer}-${new Date().getTime()} `;
+        a.click();
+       }).catch(() => alert("Failed to download image!"));
+}
+
 const generateHTML = (images) => {
     // Making li of all fetched images and adding them to the existing image wrapper
     imageWrapper.innerHTML += images.map(img =>
@@ -19,7 +28,9 @@ const generateHTML = (images) => {
                     <i class="uil uil-camera"></i>
                     <span>${img.photographer}</span>
                 </div>
-                <button><i class="uil uil-import"></i></button>
+                <button onclick="downLoadImage('${img.src.large2x}','${img.photographer}')">
+                <i class="uil uil-import"></i>
+                </button>
             </div>
         </li>`
     ).join("");
